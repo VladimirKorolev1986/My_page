@@ -75,7 +75,7 @@ def sings_type_zodiac(request, sint_type_zodiac):
     if list_zodiac_type:
         res = ''
         for sing in list_zodiac_type:
-            redirect_path=reverse('horoscope-name', args=(sing, ))
+            redirect_path = reverse('horoscope-name', args=(sing,))
             res += f'<li><a href="{redirect_path}">{sing}</a></li>'
         response = f"""
         <ol>
@@ -83,3 +83,31 @@ def sings_type_zodiac(request, sint_type_zodiac):
         </ol>    
         """
         return HttpResponse(response)
+
+
+dct_day = {
+    (110,140):'aries',
+    (141, 171):'taurus',
+    (172, 202):'gemini'
+}
+
+def get_info_by_date(request, month, day):
+    day_in_year = month*30 + day
+
+    return HttpResponse(f'месяц - {month}, день - {day}')
+
+
+
+"""21 марта – 20 апреля Овен
+21 апреля – 21 мая Телец
+22 мая – 21 июня Близнецы
+22 июня – 22 июля Рак
+23 июля – 23 августа Лев
+24 августа – 22 сентября Дева
+23 сентября – 22 октября Весы
+23 октября – 22 ноября Скорпион
+22 ноября – 21 декабря Стрелец
+22 декабря – 20 января Козерог
+21 января – 19 февраля Водолей
+20 февраля – 20 марта Рыбы."""
+"""03/21-04/20
