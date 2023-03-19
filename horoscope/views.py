@@ -86,16 +86,27 @@ def sings_type_zodiac(request, sint_type_zodiac):
 
 
 dct_day = {
-    (110,140):'aries',
-    (141, 171):'taurus',
-    (172, 202):'gemini'
+    (110, 140): 'aries',
+    (141, 171): 'taurus',
+    (172, 202): 'gemini',
+    (203, 233): 'cancer',
+    (234, 264): 'leo',
+    (265, 295): 'virgo',
+    (296, 326): 'libra',
+    (327, 357): 'scorpio',
+    (356, 386): 'sagittarius',
+
 }
 
+
 def get_info_by_date(request, month, day):
-    day_in_year = month*30 + day
+    sing = ''
+    day_in_year = month * 30 + day
+    for date in dct_day:
+        if date[0] <= day_in_year <= date[1]:
+            sing = dct_day[date]
 
-    return HttpResponse(f'месяц - {month}, день - {day}')
-
+    return HttpResponse(f'месяц - {month}, день - {day}, и знак зодиака {sing}')
 
 
 """21 марта – 20 апреля Овен
@@ -110,4 +121,3 @@ def get_info_by_date(request, month, day):
 22 декабря – 20 января Козерог
 21 января – 19 февраля Водолей
 20 февраля – 20 марта Рыбы."""
-"""03/21-04/20
