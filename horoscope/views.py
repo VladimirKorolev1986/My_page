@@ -18,6 +18,10 @@ zodiac_dict = {
     'pisces': 'Рыбы - двенадцатый знак зодиака, планеты Юпитер (с 20 февраля по 20 марта).',
 
 }
+zodiac_types = {'fire': ['aries', 'taurus', 'gemini'],
+                'earth': ['cancer', 'leo', 'virgo'],
+                'air': ['libra', 'scorpio', 'sagittarius'],
+                'water': ['capricorn', 'aquarius', 'pisces']}
 
 
 def get_info_about_sign_zodiac(request, sing_zodiac):
@@ -26,9 +30,6 @@ def get_info_about_sign_zodiac(request, sing_zodiac):
         return HttpResponse(f'<h2>{description}</h2>')
     else:
         HttpResponseNotFound(f'Нет такого знака зодиака - {sing_zodiac}')
-    # if sing_zodiac not in zodiac_dict:
-    #     return HttpResponseNotFound('Нет такого знака зодиака')
-    # return HttpResponse(f'{zodiac_dict[sing_zodiac]}')
 
 
 def get_info_about_sign_zodiac_by_number(request, sing_zodiac: int):
@@ -41,7 +42,6 @@ def get_info_about_sign_zodiac_by_number(request, sing_zodiac: int):
 
 def index(request):
     name_zodiac = list(zodiac_dict)
-
     res = ''
     for sing in name_zodiac:
         redirect_path = reverse('horoscope-name', args=(sing,))
@@ -54,10 +54,31 @@ def index(request):
     return HttpResponse(response)
 
 
-def types_sign_zodiac(request, types_zodiac):
-    pass
+def types_sign_zodiac(request):
+    name_type = list(zodiac_types)
+    res = ''
+    count = 0
+    for type in name_type:
+        # if count <= 3:
+        # redirect_path = reverse('horoscope-types', args=(type[count],))
+        res += f'<li><a>{type.title()}</a></li>'
+    response = f"""
+        <ol>
+            {res}
+        </ol>
+        """
+    return HttpResponse(response)
 
 
-
-
-
+def sings_type_zodiac(request, sint_type_zodiac):
+    list_zodiac_type = zodiac_types[sint_type_zodiac]
+    if list_zodiac_type:
+        res = ''
+        for sing in list_zodiac_type:
+            res += f'<li><a>{sing}</a></li>'
+        response = f"""
+        <ol>
+            {res}
+        </ol>    
+        """
+        return HttpResponse(response)
