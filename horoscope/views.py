@@ -59,9 +59,9 @@ def types_sign_zodiac(request):
     res = ''
     count = 0
     for type in name_type:
-        # if count <= 3:
-        # redirect_path = reverse('horoscope-types', args=(type[count],))
-        res += f'<li><a>{type.title()}</a></li>'
+        redirect_path = reverse('horoscope-types', args=(type,))
+        res += f'<li><a href="{redirect_path}">{type.title()}</a></li>'
+
     response = f"""
         <ol>
             {res}
@@ -75,7 +75,8 @@ def sings_type_zodiac(request, sint_type_zodiac):
     if list_zodiac_type:
         res = ''
         for sing in list_zodiac_type:
-            res += f'<li><a>{sing}</a></li>'
+            redirect_path=reverse('horoscope-name', args=(sing, ))
+            res += f'<li><a href="{redirect_path}">{sing}</a></li>'
         response = f"""
         <ol>
             {res}
