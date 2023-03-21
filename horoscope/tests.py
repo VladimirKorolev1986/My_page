@@ -32,9 +32,10 @@ class TestHoroscope(TestCase):
                       response.content.decode())
 
     def test_libra_redirect(self):
-        response = self.client.get('/horoscope/7')
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/horoscope/libra')
+        for k, v in enumerate(zodiac_dict.keys()):
+            response = self.client.get(f'/horoscope/{k+1}')
+            self.assertEqual(response.status_code, 302)
+            self.assertEqual(response.url, f'/horoscope/{v}')
 
     def test_signs(self):
         for key, value in zodiac_dict.items():
