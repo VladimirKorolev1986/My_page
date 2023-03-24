@@ -12,16 +12,19 @@ dct = {
 }
 
 
+# def weekday(request, list_day):
+#     if list_day not in dct:
+#         return HttpResponseNotFound("Нет такой страницы")
+#     return HttpResponse(f'{dct[list_day]}')
+
 def weekday(request, list_day):
     if list_day not in dct:
         return HttpResponseNotFound("Нет такой страницы")
-    return HttpResponse(f'{dct[list_day]}')
+    return render(request, 'week_days/greeting.html')
 
 
 def days(response, day: int):
-    # if day not in dct_day:
-    #     return HttpResponseNotFound(f'"Неверный номер дня - {day}')
-    # return HttpResponse(f'Сегодня {dct_day[day]} день недели')
+
     if day > len(dct):
         return HttpResponseNotFound('Нет такого дня')
     name_day = list(dct)[day - 1]

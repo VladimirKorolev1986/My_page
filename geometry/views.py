@@ -32,5 +32,9 @@ def redirect_square(request, width):
 
 
 def redirect_circle(request, radius):
-    redirect_cir = reverse('circle-area', args=(radius,))
+    redirect_cir = reverse('geometry-area', args=(radius,))
     return HttpResponseRedirect(redirect_cir)
+
+
+def figure(request, figure):
+    return render(request, f'geometry/{figure}.html')

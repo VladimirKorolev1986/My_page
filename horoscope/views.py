@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 zodiac_dict = {
 
@@ -25,11 +26,7 @@ zodiac_types = {'fire': ['aries', 'taurus', 'gemini'],
 
 
 def get_info_about_sign_zodiac(request, sing_zodiac):
-    description = zodiac_dict.get(sing_zodiac)
-    if description:
-        return HttpResponse(f'<h2>{description}</h2>')
-    else:
-        HttpResponseNotFound(f'Нет такого знака зодиака - {sing_zodiac}')
+    return render(request, 'horoscope/info_zodiac.html')
 
 
 def get_info_about_sign_zodiac_by_number(request, sing_zodiac: int):
