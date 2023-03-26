@@ -23,5 +23,6 @@ urlpatterns = [
     path('todo_week/', include('week_days.urls')),
     path('posts/', include('posts.urls')),
     path('calculate_geometry/', include('geometry.urls')),
+    path('people/', include('people.urls')),
 
 ]
