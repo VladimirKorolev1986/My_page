@@ -15,8 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from horoscope import views as views_horoscope
-from week_days import views as views_week_days
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -11,6 +11,7 @@ urlpatterns = [
     path('get_circle_area/<int:radius>', views.redirect_circle),
 
     path('<figure>/', views.figure),
+
     # path('square/', views.get_square_area, name='square-area'),
     # path('geometry/', views.get_circle_area, name='geometry-area')
 
