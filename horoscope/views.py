@@ -49,17 +49,14 @@ def get_info_about_sign_zodiac_by_number(request, sing_zodiac: int):
 
 
 def index(request):
-    name_zodiac = list(zodiac_dict)
-    res = ''
-    for sing in name_zodiac:
-        redirect_path = reverse('horoscope-name', args=(sing,))
-        res += f'<li><a href="{redirect_path}">{sing.title()}</a></li>'
-    response = f"""
-    <ol>
-        {res}    
-    </ol>
-    """
-    return HttpResponse(response)
+    name_zodiacs = list(zodiac_dict)
+    # f'<li><a href="{redirect_path}">{sing.title()}</a></li>'
+    context = {
+        'name_zodiacs': name_zodiacs,
+        'zodiac_dict': zodiac_dict
+    }
+
+    return render(request, 'horoscope/index.html', context=context)
 
 
 def types_sign_zodiac(request):

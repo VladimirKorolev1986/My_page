@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title> Menu</title>
 </head>
 <body>
+    <ul>
+        {% for sing in name_zodiacs %}
+            {% if forloop.first%}
+                <li><b>{{forloop.counter0}}. {{sing|title}}</b></li>
+            {% else %}
+                <li>{{forloop.counter}}. {{sing|title}}</li>
+            {% endif %}
+
+        {% endfor %}
+    </ul>
+    {% for key, value in zodiac_dict.items %}
+        {{key}}: {{value}}
+    {% endfor %}
+
 
 </body>
 </html>
