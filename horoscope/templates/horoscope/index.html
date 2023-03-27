@@ -7,17 +7,10 @@
 <body>
     <ul>
         {% for sing in name_zodiacs %}
-            {% if forloop.first%}
-                <li><b>{{forloop.counter0}}. {{sing|title}}</b></li>
-            {% else %}
-                <li>{{forloop.counter}}. {{sing|title}}</li>
-            {% endif %}
-
+            <li><a href="{% url 'horoscope-name' sing_zodiac=sing %}">{{sing|title}}</a></li>
         {% endfor %}
     </ul>
-    {% for key, value in zodiac_dict.items %}
-        <p>{{key}}: {{value}}</p>
-    {% endfor %}
+
 
 
 </body>
