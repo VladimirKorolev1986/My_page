@@ -1,22 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> Гороскоп для {{sing|capfirst}} </title>
-</head>
-<body>
-    <h1> Приложение Гороскоп </h1>
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Гороскоп для {{sing|capfirst}}
+
+{% endblock %}
+
+
+
+{% block content %}
+
     {% if description_zodiac is None %}
-        <h2>Неправильный знак зодиака {{ sing }}</h2>
+        <h2>Неправильный знак зодиака {{ sing|upper }}</h2>
     {% else %}
-      <h2>{{ description_zodiac }} </h2>
+      <h2>{{ description_zodiac|capfirst|safe }} </h2>
     {% endif %}
 
-    {% if my_list|length >= 3 %}
-        <p>длина списка больше трёх</p>
-    {% else %}
-        <p>Длина меньше трёх</p>
-    {% endif %}
-
-</body>
-</html>
+{% endblock %}
