@@ -5,10 +5,12 @@
 {% endblock %}
 
 {% block content %}
+    {% include 'uncludes/navbar.html' %}
     <ul>
         {% for sing in name_zodiacs %}
             <li><a href="{% url 'horoscope-name' sing_zodiac=sing %}">{{sing|title}}</a></li>
         {% endfor %}
     </ul>
+    {% include 'uncludes/navbar.html' %}
 {% endblock %}
 

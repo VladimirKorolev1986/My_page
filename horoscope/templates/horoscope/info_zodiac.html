@@ -9,7 +9,7 @@
 
 
 {% block content %}
-
+    {% include 'uncludes/navbar.html' %}
     {% if description_zodiac is None %}
         <h2>Неправильный знак зодиака {{ sing|upper }}</h2>
     {% else %}
