@@ -44,7 +44,6 @@ def get_info_about_sign_zodiac_by_number(request, sing_zodiac: int):
 
 def index(request):
     name_zodiacs = list(zodiac_dict)
-    # f'<li><a href="{redirect_path}">{sing.title()}</a></li>'
     context = {
         'name_zodiacs': name_zodiacs,
         'zodiac_dict': zodiac_dict
