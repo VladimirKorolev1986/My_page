@@ -27,9 +27,11 @@ zodiac_types = {'fire': ['aries', 'taurus', 'gemini'],
 
 def get_info_about_sign_zodiac(request, sing_zodiac):
     description = zodiac_dict.get(sing_zodiac)
+    name_zodiacs = list(zodiac_dict)
     data = {
         'description_zodiac': description,
-        'sing': sing_zodiac
+        'sing': sing_zodiac,
+        'name_zodiacs': name_zodiacs,
     }
     return render(request, 'horoscope/info_zodiac.html', context=data)
 

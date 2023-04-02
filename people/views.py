@@ -31,11 +31,11 @@ def index(request):
     context = {
         'people_name': people_name
     }
-    return render(request, 'people/people.html', context=context)
+    return render(request, 'beautiful_table/beautiful_table.html', context=context)
 
 
 def people_details(request):
     context= {
-        'people': people
+        'beautiful_table': people
     }
-    return render(request, 'people/people2.html', context=context)
+    return render(request, 'beautiful_table/people2.html', context=context)

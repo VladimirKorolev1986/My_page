@@ -4,9 +4,12 @@
 
 {% block css_additional %}
 
-<link rel="stylesheet" href="{% static 'people/css/table.css' %}">
+<link rel="stylesheet" href="{% static 'beautiful_table/css/table.css' %}">
 
 {% endblock %}
+
+
+{% block content %}
     <table class="styled-table">
         <thead>
             <tr>
@@ -38,7 +41,5 @@
             </tr>
         </tbody>
     </table>
-
-{% block content %}
 
 {% endblock %}
