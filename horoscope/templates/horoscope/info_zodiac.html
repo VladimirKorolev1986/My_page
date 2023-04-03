@@ -11,11 +11,13 @@
 
     Гороскоп для {{sing|capfirst}}
 
+
 {% endblock %}
 
 
 
 {% block content %}
+
     {% include 'uncludes/navbar.html' %}
     <h1>{{description_zodiac|split|first}}</h1>
     {% if description_zodiac is None %}
@@ -23,5 +25,7 @@
     {% else %}
       <h2>{{ description_zodiac|capfirst|safe }} </h2>
     {% endif %}
+
+
 
 {% endblock %}
